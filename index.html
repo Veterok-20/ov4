@@ -9,22 +9,33 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- form>ul>li*3>label+input -->
+    <form action="" id="user_form">
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input id="name" type="text" name="user_name"></li>
+            <li>
+                <label for="email">Email</label>
+                <input id="email" type="text" name="user_email"></li>
+            <li>
+                <label for="msg">Message</label>
+                <input id="message" type="text" name="user_message"></li>
+        </ul>
+        <button type="submit">Send message</button>
+    </form>
+    <div id="forum"></div>
+
     <!-- <input type="button" value="Button">-->
-    <input type="text" placeholder="User name">
-    <input type="text" placeholder="User lastname">
-    <input type="text" placeholder="User email">
-    <input type="text" placeholder="User email">
-    <input type="text" placeholder="User email">
-    <input type="text" placeholder="User email">
-    <input type="text" placeholder="User email">
-    <input type="text" placeholder="User email">
+    <!-- <input type="text" placeholder="User name"> -->
+    
 
     <!--  Emmet  -->
     <!-- button#click-->
 <!--    <button id="click" onclick="clickFunc()">Click me</button>-->
-    <button id="click">Click me</button>
+    <!-- <button id="click">Click me</button> -->
     <!-- div#input-value -->
-    <div id="input-value"></div>
+    <!-- <div id="input-value"></div> -->
     <script src="script.js"></script>
     <script>
 
