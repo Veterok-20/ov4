@@ -6,6 +6,7 @@
 
 const userForm = document.querySelector("#user_form")
 const forum = document.querySelector("#forum")
+const alertMsg = document.querySelector(".alert")
 console.log(userForm)
 console.dir(userForm)
 // let func = function(event) {
@@ -16,6 +17,20 @@ userForm.addEventListener("submit", function(event) {
     //console.log(event)
     event.preventDefault()
     const formData = new FormData(userForm)
+    if (!(userForm[0].value && userForm[1].value && userForm[2].value)) {
+        const errorMsg = (userForm[0].value ?  "" : "Введите имя<br>") + 
+        (userForm[1].value ? "" : "Введите email<br>") +
+        (userForm[2].value ? "" : "Введите сообщение<br>")        
+        alertMsg.innerHTML = errorMsg;
+        //alertMsg.style.display = "block"
+        alertMsg.classList.add('show')
+        return
+    }
+
+    alertMsg.innerHTML = '';
+    //alertMsg.style.display = "block"
+    alertMsg.classList.remove('show')
+
     const userMessage = {
         userName: formData.get('user_name'),
         userEmail: formData.get('user_email'),
@@ -25,13 +40,16 @@ userForm.addEventListener("submit", function(event) {
     userForm[1].value = ''
     userForm[2].value = ''
     // formData.set('user_name','')
-    forum.innerHTML += `
-    <div>
-       <sapn>${userMessage.userName}: </span>
-       <sapn>${userMessage.userMessage}</span>
-    </div>`
+   
+    // forum.innerHTML += `<li class="list-group-item">    
+    //    <sapn>${userMessage.userName}: </span>
+    //    <sapn>${userMessage.userMessage}: </span>
+    // </li>`
 
-    
+    forum.insertAdjacentHTML('afterbegin', `<li class="list-group-item">    
+        <sapn>${userMessage.userName}: </span>
+        <sapn>${userMessage.userMessage}: </span>
+     </li>`)    
 
 })
 
